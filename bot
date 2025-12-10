@@ -7,6 +7,7 @@ from telegram.ext import Application, CommandHandler, CallbackContext, MessageHa
 # Хранилище для состояний пользователей
 user_states = {}  # user_id: True/False
 
+TOKEN = ""
 
 async def send_water_message(application: Application):
     tz = ZoneInfo("Europe/Chisinau")
