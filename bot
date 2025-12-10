@@ -4,10 +4,11 @@ from zoneinfo import ZoneInfo
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackContext, MessageHandler, filters
 
+TOKEN = "8349493288:AAGM4ABxSC2X3CZwQ_HunNzRunPBf2VcSoo"
+
 # Хранилище для состояний пользователей
 user_states = {}  # user_id: True/False
 
-TOKEN = ""
 
 async def send_water_message(application: Application):
     tz = ZoneInfo("Europe/Chisinau")
@@ -15,7 +16,7 @@ async def send_water_message(application: Application):
     while True:
         now = datetime.now(tz)
 
-        start = time(8, 0)
+        start = time(7, 30)
         end = time(20, 0)
 
         if start <= now.time() <= end:
@@ -44,7 +45,7 @@ async def start(update: Update, context: CallbackContext):
 
     await update.message.reply_text(
         "Бот запущен! Напоминания включены.\n"
-        "Каждые 5 минут с 08:00 до 20:00 я буду отправлять 'вода'.",
+        "Каждые 5 минут с 07:30 до 20:00 я буду отправлять 'вода'.",
         reply_markup=get_keyboard()
     )
 
